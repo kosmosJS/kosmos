@@ -1,2 +1,2 @@
-# kosmosJS
-a modern javascript runtime, written in Go.
+## kosmosJS
+a modern JavaScript runtime, written in Go.
