@@ -15,7 +15,7 @@ jobs:
     - name: setup go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.18
+        go-version: 1.18.1
 
     - name: build
       run: ./scripts/build.sh
@@ -24,4 +24,4 @@ jobs:
       uses: actions/upload-artifact@v3.0.0
       with:
         name: kosmos
-        path: kosmos
+        path: ./kosmos
