@@ -2,21 +2,18 @@ package main
 
 import (
 	"runtime/debug"
-	"bufio"
 	"fmt"
     "os"
 
 	"github.com/kosmosJS/engine-node/eventloop"
-	"github.com/kosmosJS/engine-node/require"
 	"github.com/kosmosJS/kosmosJS/utils"
 	"github.com/kosmosJS/engine"
-
-	kFS "github.com/kosmosJS/std/fs"
+	"github.com/kosmosJS/std"
 )
 
 func run(p string, d string) error {
 	loop := eventloop.NewEventLoop(func() {
-		kFS.RegisterFS()
+		std.RegisterAll()
 	})
 
 	prg, err := engine.Compile(p, d, false)

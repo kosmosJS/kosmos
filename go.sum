@@ -28,6 +28,12 @@ github.com/kosmosJS/std v0.0.0-20220424183826-a46d6b5cf734 h1:yy2ASE8ojbtGyCHyH5
 github.com/kosmosJS/std v0.0.0-20220424183826-a46d6b5cf734/go.mod h1:5h9RVAYb63H9wrzvzRFQN2BhFHP6Vdgne4/DmEF7Ucc=
 github.com/kosmosJS/std v0.0.0-20220424194306-7941b83f79bb h1:GqIGDdxf5cNsPp5ofq8dIIK3Wit12ZsaSPn2fUY6yts=
 github.com/kosmosJS/std v0.0.0-20220424194306-7941b83f79bb/go.mod h1:5h9RVAYb63H9wrzvzRFQN2BhFHP6Vdgne4/DmEF7Ucc=
+github.com/kosmosJS/std v0.0.0-20220424201641-abaa57ab1e9a h1:8p6WinEu35457fxKm5/4a0bLtRAWFzlPQ3++akEmUeI=
+github.com/kosmosJS/std v0.0.0-20220424201641-abaa57ab1e9a/go.mod h1:5h9RVAYb63H9wrzvzRFQN2BhFHP6Vdgne4/DmEF7Ucc=
+github.com/kosmosJS/std v0.0.0-20220424202027-232bc26a1916 h1:BHNb8GiRby9PuTsZcEeXt22Ja+NjhEQ4X3XUTvf8suQ=
+github.com/kosmosJS/std v0.0.0-20220424202027-232bc26a1916/go.mod h1:5h9RVAYb63H9wrzvzRFQN2BhFHP6Vdgne4/DmEF7Ucc=
+github.com/kosmosJS/std v0.0.0-20220424202221-46cfbb12e0a3 h1:3gtd04aYA1dVuQHlzDr6MwWqYEtXnES27XyRVZV0wrs=
+github.com/kosmosJS/std v0.0.0-20220424202221-46cfbb12e0a3/go.mod h1:5h9RVAYb63H9wrzvzRFQN2BhFHP6Vdgne4/DmEF7Ucc=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pretty v0.3.0/go.mod h1:640gp4NfQd8pI5XOwp5fnNeVWj67G7CFk/SaSQn7NBk=
