@@ -1,31 +1,25 @@
 package main
 
 import (
-    crand "crypto/rand"
-    "encoding/binary"
 	"runtime/debug"
-    "math/rand"
 	"bufio"
 	"fmt"
     "os"
 
 	"github.com/kosmosJS/engine-node/eventloop"
-	"github.com/kosmosJS/kosmosJS/src/utils"
+	"github.com/kosmosJS/engine-node/require"
+	"github.com/kosmosJS/kosmosJS/utils"
 	"github.com/kosmosJS/engine"
+
+	kFS "github.com/kosmosJS/std/fs"
 )
 
-func newRandSource() engine.RandSource {
-	var seed int64
-	if err := binary.Read(crand.Reader, binary.LittleEndian, &seed); err != nil {
-		panic(fmt.Errorf("Could not read random bytes: %v", err))
-	}
-	return rand.New(rand.NewSource(seed)).Float64
-}
+func run(p string, d string) error {
+	loop := eventloop.NewEventLoop(func() {
+		kFS.RegisterFS()
+	})
 
-func run(p string, d []string) error {
-	loop := eventloop.NewEventLoop()
-
-	prg, err := engine.Compile(p, utils.SliceToMLString(d), false)
+	prg, err := engine.Compile(p, d, false)
 
 	if err != nil {
 		return err
@@ -67,23 +61,15 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	
-	var d []string
 
-	f, fe := os.Open(a)
+	d, fe := os.ReadFile(a)
 
-	if fe == nil {
-		sc := bufio.NewScanner(f)
-		sc.Split(bufio.ScanLines)
-		for sc.Scan() {
-			d = append(d, sc.Text())
-		}
-	} else {
+	if fe != nil {
 		fmt.Println("file cannot be accessed.")
 		os.Exit(1)
 	}
 
-	f.Close()
+	sd := string(d)
 
 	defer func() {
 		if x := recover(); x != nil {
@@ -92,7 +78,7 @@ func main() {
 		}
 	}()
 
-	if err := run(a, d); err != nil {
+	if err := run(a, sd); err != nil {
 		switch err := err.(type) {
 		case *engine.Exception:
 			fmt.Println(err.String())
