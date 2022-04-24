@@ -1,3 +1,3 @@
 # <img src="https://raw.githubusercontent.com/kosmosJS/kosmosJS/main/doc/kosmos.png" />
 
-a modern JavaScript runtime written in Go.
+<h3 align="center">a modern ECMAScript / JavaScript runtime.</h3>
