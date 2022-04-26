@@ -4,8 +4,8 @@ go 1.18
 
 require (
 	github.com/kosmosJS/engine v0.0.0-20220424180524-241d93cbe6db
-	github.com/kosmosJS/engine-node v0.0.0-20220424183416-3420ad7f1186
-	github.com/kosmosJS/std v0.0.0-20220425041849-cf6036fcd04a
+	github.com/kosmosJS/engine-node v0.0.0-20220426040216-d53e2a72192e
+	github.com/kosmosJS/std v0.0.0-20220426040417-b1ab39eb851d
 )
 
 require (
