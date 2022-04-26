@@ -31,7 +31,7 @@ func run(p string, d string) error {
 
 func main() {
 	a := os.Args[1]
-	
+
 	if len(a) == 0 {
 		fmt.Println("must specify a command or file to run\n")
 		utils.PrintHelp()
