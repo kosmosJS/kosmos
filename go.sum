@@ -7,8 +7,8 @@ github.com/kosmosJS/engine v0.0.0-20220424180524-241d93cbe6db h1:RtcMgiaJZ9C7ARf
 github.com/kosmosJS/engine v0.0.0-20220424180524-241d93cbe6db/go.mod h1:5e9dMYNOmB0tsPKfVXLrR4Udzo1oj2KMcHCK0XoptVk=
 github.com/kosmosJS/engine-node v0.0.0-20220426040216-d53e2a72192e h1:4jsEHdgIyb2a0vSwo1Om+waWiA6I5svs58K8VO4yt/I=
 github.com/kosmosJS/engine-node v0.0.0-20220426040216-d53e2a72192e/go.mod h1:s0Emxrf0Tj/zXoxWVE7N9WV0kWv9gHIuyKbTwqdDNRY=
-github.com/kosmosJS/std v0.0.0-20220426225418-f346284a8e9f h1:kGedy6qINsnwg78CHcwTw5hto1fBrwDwLxxSbTjbcBE=
-github.com/kosmosJS/std v0.0.0-20220426225418-f346284a8e9f/go.mod h1:whhYEGNhH+FrEBe8x0lVr5Xt5rAjJcvcQ6PzD/0AynA=
+github.com/kosmosJS/std v0.0.0-20220427005738-3f8bb064a484 h1:kcBhxP/LofQZiMhHB/B5prz29pzYgdkxuCjRXngxYNo=
+github.com/kosmosJS/std v0.0.0-20220427005738-3f8bb064a484/go.mod h1:whhYEGNhH+FrEBe8x0lVr5Xt5rAjJcvcQ6PzD/0AynA=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pretty v0.3.0/go.mod h1:640gp4NfQd8pI5XOwp5fnNeVWj67G7CFk/SaSQn7NBk=
