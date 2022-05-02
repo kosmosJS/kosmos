@@ -1,32 +1,52 @@
 package main
 
 import (
-	"runtime/debug"
+	dbg "runtime/debug"
+	rt "runtime"
 	"fmt"
-    "os"
+	"os"
 
-	"github.com/kosmosJS/engine-node/eventloop"
-	"github.com/kosmosJS/kosmosJS/utils"
-	"github.com/kosmosJS/engine"
-	"github.com/kosmosJS/std"
+	el "github.com/kosmosJS/engine-node/eventloop"
+	en "github.com/kosmosJS/engine"
+	s "github.com/kosmosJS/std"
 )
 
-func run(p string, d string) error {
-	loop := eventloop.NewEventLoop(func() {
-		std.RegisterAll()
-	})
-
-	prg, err := engine.Compile(p, d, false)
-
-	if err != nil {
-		return err
+var (
+	h = []string {
+		"usage:",
+		"kosmos <argument or file>",
+		"",
+		"arguments:",
+		"help - print this help screen",
+		"version - print kosmos version",
 	}
 
-	loop.Run(func(vm *engine.Runtime) {
-		_, err = vm.RunProgram(prg)
+	gc = "N/A"
+	ver = "0.0.1"
+)
+
+func help() {
+    for _, l := range h {
+        fmt.Println(l)
+    }
+}
+
+func run(p, d string) error {
+	l := el.NewEventLoop(func() {
+		s.RegisterAll()
 	})
 
-	return err
+	c, e := en.Compile(p, d, false)
+
+	if e != nil {
+		return e
+	}
+
+	l.Run(func(v *en.Runtime) {
+		_, e = v.RunProgram(c)
+	})
+
+	return e
 }
 
 func main() {
@@ -34,21 +54,20 @@ func main() {
 
 	if len(a) == 0 {
 		fmt.Println("must specify a command or file to run\n")
-		utils.PrintHelp()
+		help()
 		os.Exit(1)
 	}
 
-	if utils.Contains(utils.Arguments, a) {
-		switch(a) {
-			case "help":
-				utils.PrintHelp()
-			case "version":
-				utils.PrintVersion()
-		}
+	switch(a) {
+	case "help":
+		help()
+		os.Exit(0)
+	case "version":
+		fmt.Printf("kosmos version %s %s/%s commit %s\n", ver, rt.GOOS, rt.GOARCH, gc)
 		os.Exit(0)
 	}
 
-	if !utils.Contains([]string{".js", "cjs"}, a[len(a)-3:]) {
+	if a[len(a)-3:] != ".js" && a[len(a)-4:] != ".cjs" {
 		fmt.Println("file must be a valid CommonJS JavaScript file.")
 		os.Exit(1)
 	} else {
@@ -66,23 +85,21 @@ func main() {
 		os.Exit(1)
 	}
 
-	sd := string(d)
-
 	defer func() {
 		if x := recover(); x != nil {
-			debug.Stack()
+			dbg.Stack()
 			panic(x)
 		}
 	}()
 
-	if err := run(a, sd); err != nil {
-		switch err := err.(type) {
-		case *engine.Exception:
-			fmt.Println(err.String())
-		case *engine.InterruptedError:
-			fmt.Println(err.String())
+	if e := run(a, string(d)); e != nil {
+		switch e := e.(type) {
+		case *en.Exception:
+			fmt.Println(e.String())
+		case *en.InterruptedError:
+			fmt.Println(e.String())
 		default:
-			fmt.Println(err)
+			fmt.Println(e)
 		}
 		os.Exit(64)
 	}

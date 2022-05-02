@@ -1,3 +1,3 @@
-# <img src="https://raw.githubusercontent.com/kosmosJS/kosmosJS/main/doc/header.png" />
+# kosmosJS - kosmos
 
-<h3 align="center">a modern ECMAScript / JavaScript runtime.</h3>
+a modern ECMAScript / JavaScript runtime.
